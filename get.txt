@@ -1,0 +1,4 @@
+export loadbalancer=$(kubectl get svc my-nginx-service -o jsonpath='{.status.loadBalancer.ingress[*].hostname}')
+
+curl -k -s http://${loadbalancer} | grep title
+
